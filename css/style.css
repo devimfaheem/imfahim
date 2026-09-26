@@ -410,6 +410,36 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .facts dd { margin: 2px 0 0; font-weight: 600; overflow-wrap: anywhere; }
 .facts a { color: var(--accent); }
 
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.service-card { padding: 30px; transition: translate .35s var(--ease), opacity .8s var(--ease), filter .8s var(--ease); }
+.service-card:hover { translate: 0 -4px; }
+.service-icon {
+    width: 48px; height: 48px; padding: 12px; border-radius: 14px; margin-bottom: 20px;
+    color: var(--accent); background: var(--accent-soft);
+    transition: transform .4s var(--ease);
+}
+.service-card:hover .service-icon { transform: rotate(-8deg) scale(1.08); }
+.service-card h3 { font-size: 1.2rem; font-weight: 700; }
+.service-card .muted { margin-top: 10px; }
+
+/* FAQ */
+.faq-list { display: grid; gap: 12px; max-width: 860px; }
+.faq-item { padding: 0; }
+.faq-item summary {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 22px 26px; cursor: pointer; list-style: none;
+    font-weight: 600; font-size: 1.05rem;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary .icon {
+    width: 32px; height: 32px; padding: 7px; border-radius: 50%; flex-shrink: 0;
+    color: var(--accent); background: var(--accent-soft);
+    transition: transform .35s var(--ease);
+}
+.faq-item[open] summary .icon { transform: rotate(45deg); }
+.faq-item p { padding: 0 26px 24px; color: var(--text-muted); }
+
 /* Experience timeline */
 .timeline { position: relative; padding-left: 44px; }
 .timeline::before {
@@ -611,7 +641,9 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
     .flow-caption { font-size: .7rem; }
     .clock { font-size: 1.6rem; }
     .section { padding-top: 88px; }
-    .skills-grid, .edu-grid, .quotes { grid-template-columns: 1fr; }
+    .skills-grid, .edu-grid, .quotes, .services-grid { grid-template-columns: 1fr; }
+    .faq-item summary { padding: 18px 20px; font-size: 1rem; }
+    .faq-item p { padding: 0 20px 20px; }
     .skill-card.featured { grid-column: auto; }
     .timeline { padding-left: 32px; }
     .timeline::before, .timeline-fill { left: 7px; }

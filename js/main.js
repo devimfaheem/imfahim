@@ -57,7 +57,7 @@
     });
 
     // Stagger reveal delays inside grids
-    $$(".bento, .skills-grid, .edu-grid, .quotes, .about-grid").forEach(function (group) {
+    $$(".bento, .skills-grid, .edu-grid, .quotes, .about-grid, .services-grid, .faq-list").forEach(function (group) {
         $$(".reveal", group).forEach(function (el, i) { el.style.setProperty("--i", i); });
     });
 

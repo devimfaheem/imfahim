@@ -1,0 +1,43 @@
+# Muhammad Faheem Arshad (Fahim Arshad)
+
+> AI Systems Engineer, AI Solution Architect and Engineering Manager based in Lahore, Pakistan, with 10+ years of experience. Currently AI Solution Architect & Engineering Manager at Refocus AI. Builds AI agents, agentic business automation, multi-LLM systems and scalable Node.js/TypeScript platforms, and leads engineering teams.
+
+Also known as: Faheem Arshad, Fahim Arshad, M Faheem Arshad, Faheem, Fahim.
+Website: https://www.imfahim.com
+Email: dev.imfaheem@gmail.com
+LinkedIn: https://www.linkedin.com/in/imfahim-arshad/
+GitHub: https://github.com/devimfaheem
+
+## What he does
+
+- AI Systems Engineering: production AI systems — multi-LLM routing across models such as Claude and Gemini, AI agents, reviewer agents that verify AI output, observability.
+- Agentic Automation: AI agents that automate business workflows end to end — document extraction, validation, browser automation, human-in-the-loop review.
+- AI Solution Architecture: scalable, cost-efficient architectures — microservices, queue-based processing (RabbitMQ/SQS), AWS/Azure, LLM integration.
+- Engineering Leadership: leads and mentors engineering teams (8+ engineers), sets code-quality standards, aligns technical roadmaps with business goals.
+
+## Experience
+
+- AI Solution Architect & Engineering Manager, Refocus AI (Mar 2025 – present, remote): leads an AI engineering team building browser automation and multi-LLM pipelines; reviewer-agent layers; microservices and queue-based architecture; Datadog observability.
+- Managing Consultant / Tech Lead, Systems Ltd (Jul 2023 – Mar 2025): high-traffic news platform (millions of monthly users, 10k+ concurrent users) on Node.js, NestJS, Next.js, MySQL; CRM products with Angular; led a team of 8+.
+- Principal Software Engineer, Confiz Ltd (Jan 2021 – Jul 2023): Node.js/NestJS with Domain-Driven Design; React and Angular component libraries; RabbitMQ queues cut server load by 30%.
+- Senior Software Engineer, Strategic Systems International (Feb 2020 – Jan 2021).
+- Software Engineer, Dubizzle Labs / Zameen.com (Oct 2016 – Jan 2020).
+- Software Engineer, Stellar Technologies (Jan 2016 – Oct 2016).
+
+## Skills
+
+- AI & LLM: Claude (Anthropic), Gemini, multi-LLM orchestration, prompt engineering, AI agent design, reviewer agents, browser AI automation.
+- AI-native development: Claude Code, Agent Skills, Superpowers, spec-driven development, TDD with AI agents, subagent orchestration, Cursor, GitHub Copilot.
+- Backend: Node.js, NestJS, Express.js, REST, GraphQL, microservices, WebSockets.
+- Frontend: TypeScript, React, Next.js, Angular, Tailwind.
+- Cloud & data: AWS, Azure, Docker, CI/CD, GitHub Actions, Datadog, PostgreSQL, MySQL, MongoDB, Redis, Elasticsearch.
+
+## Education
+
+- BS Computer Science (Honors), Bahauddin Zakariya University, Multan (2012–2016).
+- Leadership Development Course, LUMS (2024).
+
+## Links
+
+- [Portfolio](https://www.imfahim.com/): full profile, experience and contact
+- [CV (PDF)](https://www.imfahim.com/books/faheem_arshad.pdf)
