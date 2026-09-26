@@ -94,7 +94,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css?v=3">
     <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -115,6 +115,7 @@
     </svg>
 
     <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
 
     <header class="site-header">
         <nav class="nav container" aria-label="Primary">
@@ -134,76 +135,130 @@
     </header>
 
     <main id="main">
-        <!-- Hero -->
-        <section class="hero container" id="top">
-            <div class="hero-text">
-                <p class="eyebrow"><span class="dot"></span> Currently at Refocus AI</p>
-                <h1>Muhammad Faheem Arshad</h1>
-                <p class="hero-role">AI Solution Architect <span>&amp;</span> Engineering Manager</p>
-                <p class="hero-lead">I design and ship scalable Node.js platforms and AI systems — from multi-LLM pipelines and autonomous reviewer agents to high-traffic web apps serving millions of users.</p>
-                <div class="hero-actions">
-                    <a class="btn btn-primary" href="books/faheem_arshad.pdf" target="_blank" rel="noopener" data-track="cv_download">
-                        <svg class="icon"><use href="#i-download"/></svg> Download CV
-                    </a>
-                    <a class="btn btn-ghost" href="#contact">
-                        Get in touch <svg class="icon"><use href="#i-arrow"/></svg>
-                    </a>
+        <!-- Hero bento -->
+        <section class="container hero" id="top">
+            <div class="hero-bg" aria-hidden="true"><span></span><span></span></div>
+            <div class="bento glow-group">
+                <div class="tile card tilt t-intro reveal">
+                    <p class="mono-label">// hello, I'm</p>
+                    <h1 class="split">Muhammad Faheem Arshad</h1>
+                    <p class="hero-role"><span class="gradient-text">AI Solution Architect</span> &amp; <span class="gradient-text">Engineering Manager</span></p>
+                    <p class="hero-lead">I design and ship scalable Node.js platforms and AI systems — from multi-LLM pipelines and autonomous reviewer agents to high-traffic web apps serving millions of users.</p>
+                    <div class="hero-actions">
+                        <a class="btn btn-primary magnetic" href="books/faheem_arshad.pdf" target="_blank" rel="noopener" data-track="cv_download">
+                            <svg class="icon"><use href="#i-download"/></svg> Download CV
+                        </a>
+                        <a class="btn btn-ghost magnetic" href="#contact">
+                            Get in touch <svg class="icon"><use href="#i-arrow"/></svg>
+                        </a>
+                    </div>
                 </div>
-                <ul class="hero-meta">
-                    <li><svg class="icon"><use href="#i-pin"/></svg> Bahria Town, Lahore, Pakistan</li>
-                    <li><a href="https://www.linkedin.com/in/imfahim-arshad/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-linkedin"/></svg> LinkedIn</a></li>
-                </ul>
-            </div>
-            <div class="hero-photo">
-                <div class="photo-frame">
-                    <img src="img/faheem-portrait.jpg" alt="Muhammad Faheem Arshad, AI Solution Architect and Engineering Manager" width="1000" height="1079" fetchpriority="high">
-                </div>
-                <div class="photo-badge">
-                    <strong>10+</strong>
-                    <span>years<br>engineering</span>
-                </div>
-            </div>
-        </section>
 
-        <!-- Stats -->
-        <section class="container" aria-label="Highlights">
-            <ul class="stats reveal">
-                <li><strong data-count="10" data-suffix="+">10+</strong><span>Years of experience</span></li>
-                <li><strong data-count="10" data-suffix="k+">10k+</strong><span>Concurrent users scaled</span></li>
-                <li><strong data-count="30" data-suffix="%">30%</strong><span>Server load cut with queues</span></li>
-            </ul>
+                <div class="tile card tilt t-photo reveal">
+                    <img src="img/faheem-portrait.jpg" alt="Muhammad Faheem Arshad, AI Solution Architect and Engineering Manager" width="1000" height="1079" fetchpriority="high">
+                    <a class="photo-chip" href="https://www.linkedin.com/in/imfahim-arshad/" target="_blank" rel="noopener" data-track="contact_linkedin">
+                        <svg class="icon"><use href="#i-linkedin"/></svg> Connect
+                    </a>
+                </div>
+
+                <div class="tile card tilt t-now reveal">
+                    <p class="mono-label"><span class="live-dot"></span> Now</p>
+                    <p class="tile-strong">Refocus AI</p>
+                    <p class="tile-sub">Building AI browser-automation &amp; multi-LLM systems</p>
+                </div>
+
+                <div class="tile card tilt t-clock reveal">
+                    <p class="mono-label"><svg class="icon"><use href="#i-pin"/></svg> Lahore, Pakistan</p>
+                    <p class="clock" data-clock>--<span class="colon">:</span>--</p>
+                    <p class="tile-sub">Local time · PKT (UTC+5)</p>
+                </div>
+
+                <div class="tile card tilt t-years reveal">
+                    <p class="stat" data-count="10" data-suffix="+">10+</p>
+                    <p class="tile-sub">Years building software</p>
+                </div>
+
+                <div class="tile card tilt t-users reveal">
+                    <p class="stat" data-count="10" data-suffix="k+">10k+</p>
+                    <p class="tile-sub">Concurrent users scaled</p>
+                </div>
+
+                <div class="tile card t-pipe reveal">
+                    <p class="mono-label">How I build AI systems</p>
+                    <svg class="pipeline" viewBox="0 0 520 150" role="img" aria-label="A task is routed to Claude or Gemini, checked by a reviewer agent, then output">
+                        <g class="p-lines">
+                            <path d="M68 75 H100"/>
+                            <path d="M180 75 C200 75 202 35 222 35"/>
+                            <path d="M180 75 C200 75 202 115 222 115"/>
+                            <path d="M302 35 C322 35 320 75 340 75"/>
+                            <path d="M302 115 C322 115 320 75 340 75"/>
+                            <path d="M432 75 H464"/>
+                        </g>
+                        <path id="flow-a" class="p-hidden" d="M68 75 H180 C200 75 202 35 222 35 H302 C322 35 320 75 340 75 H464"/>
+                        <path id="flow-b" class="p-hidden" d="M68 75 H180 C200 75 202 115 222 115 H302 C322 115 320 75 340 75 H464"/>
+                        <g class="p-dots">
+                            <circle r="4"><animateMotion dur="3.2s" repeatCount="indefinite" rotate="auto"><mpath href="#flow-a"/></animateMotion></circle>
+                            <circle r="4"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#flow-b"/></animateMotion></circle>
+                            <circle r="4"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#flow-b"/></animateMotion></circle>
+                        </g>
+                        <g class="p-nodes">
+                            <rect x="4" y="57" width="64" height="36" rx="10"/><text x="36" y="80">Task</text>
+                            <rect x="100" y="57" width="80" height="36" rx="10"/><text x="140" y="80">Router</text>
+                            <rect x="222" y="17" width="80" height="36" rx="10" class="p-llm"/><text x="262" y="40">Claude</text>
+                            <rect x="222" y="97" width="80" height="36" rx="10" class="p-llm"/><text x="262" y="120">Gemini</text>
+                            <rect x="340" y="57" width="92" height="36" rx="10"/><text x="386" y="80">Reviewer</text>
+                            <circle cx="488" cy="75" r="24" class="p-out"/><path class="p-check" d="M478 75 l7 7 l13 -14"/>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="tile card tilt t-load reveal">
+                    <p class="stat" data-count="30" data-suffix="%">30%</p>
+                    <p class="tile-sub">Server load cut with queue architecture</p>
+                </div>
+
+                <div class="tile card t-stack reveal" aria-label="Technologies I work with">
+                    <div class="marquee"><ul class="marquee-track">
+                        <li>Node.js</li><li>NestJS</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Angular</li><li>GraphQL</li><li>Express.js</li><li>WebSockets</li><li>Tailwind</li><li>Microservices</li>
+                    </ul></div>
+                    <div class="marquee reverse"><ul class="marquee-track">
+                        <li>Claude</li><li>Gemini</li><li>Playwright</li><li>Puppeteer</li><li>AWS</li><li>Azure</li><li>Docker</li><li>RabbitMQ</li><li>PostgreSQL</li><li>MongoDB</li><li>Redis</li><li>Elasticsearch</li><li>Datadog</li>
+                    </ul></div>
+                </div>
+            </div>
         </section>
 
         <!-- About -->
         <section class="section container" id="about">
-            <div class="section-head reveal">
+            <div class="section-head">
                 <p class="kicker">01 — About</p>
-                <h2>Engineering leader who still ships code</h2>
+                <h2 class="split">Engineering leader who still ships code</h2>
             </div>
-            <div class="about-grid">
-                <div class="about-text reveal">
+            <div class="about-grid glow-group">
+                <div class="card about-text reveal">
                     <p>Results-driven AI Solution Architect and Engineering Manager with <strong>10+ years</strong> of experience designing and delivering scalable Node.js and JavaScript applications across backend and frontend. Deep expertise in NestJS, Express.js, TypeScript, React, Next.js, Angular and REST/GraphQL API development.</p>
                     <p>I've built high-performance <strong>B2B AI-powered SaaS platforms</strong>, microservices architectures and enterprise web applications — working across AWS and Azure, SQL/NoSQL databases, RabbitMQ/SQS queues, Elasticsearch and CI/CD pipelines.</p>
                     <p>As a leader I mentor teams, drive code-quality standards and align technical strategy with business goals.</p>
                 </div>
-                <dl class="facts reveal">
+                <dl class="card facts reveal">
                     <div><dt>Current role</dt><dd>AI Solution Architect &amp; Engineering Manager, Refocus AI</dd></div>
                     <div><dt>Focus</dt><dd>AI/LLM systems, Node.js, Solution Architecture</dd></div>
                     <div><dt>Education</dt><dd>BS Computer Science (Hons), BZU</dd></div>
                     <div><dt>Location</dt><dd>Lahore, Pakistan</dd></div>
-                    <div><dt>Email</dt><dd><a href="mailto:dev.imfaheem@gmail.com">dev.imfaheem@gmail.com</a></dd></div>
+                    <div><dt>Email</dt><dd><a href="mailto:dev.imfaheem@gmail.com" data-track="contact_email">dev.imfaheem@gmail.com</a></dd></div>
                 </dl>
             </div>
         </section>
 
         <!-- Experience -->
         <section class="section container" id="experience">
-            <div class="section-head reveal">
+            <div class="section-head">
                 <p class="kicker">02 — Experience</p>
-                <h2>A decade of building and leading</h2>
+                <h2 class="split">A decade of building and leading</h2>
             </div>
-            <ol class="timeline">
-                <li class="job reveal is-current">
+            <ol class="timeline glow-group">
+                <li class="timeline-fill" aria-hidden="true"></li>
+                <li class="job card reveal is-current">
                     <div class="job-head">
                         <div>
                             <h3>AI Solution Architect &amp; Engineering Manager</h3>
@@ -221,7 +276,7 @@
                     </ul>
                     <ul class="tags"><li>Node.js</li><li>TypeScript</li><li>Playwright</li><li>Claude</li><li>Gemini</li><li>RabbitMQ</li><li>Datadog</li></ul>
                 </li>
-                <li class="job reveal">
+                <li class="job card reveal">
                     <div class="job-head">
                         <div>
                             <h3>Managing Consultant / Tech Lead</h3>
@@ -237,7 +292,7 @@
                     </ul>
                     <ul class="tags"><li>NestJS</li><li>Next.js</li><li>Angular</li><li>MySQL</li></ul>
                 </li>
-                <li class="job reveal">
+                <li class="job card reveal">
                     <div class="job-head">
                         <div>
                             <h3>Principal Software Engineer</h3>
@@ -253,7 +308,7 @@
                     </ul>
                     <ul class="tags"><li>Express.js</li><li>DDD</li><li>React</li><li>RabbitMQ</li></ul>
                 </li>
-                <li class="job reveal">
+                <li class="job card reveal">
                     <div class="job-head">
                         <div>
                             <h3>Senior Software Engineer</h3>
@@ -267,7 +322,7 @@
                         <li>Mentored junior developers and worked directly with international clients on API contracts and releases.</li>
                     </ul>
                 </li>
-                <li class="job reveal">
+                <li class="job card reveal">
                     <div class="job-head">
                         <div>
                             <h3>Software Engineer</h3>
@@ -281,7 +336,7 @@
                         <li>Modernized the legacy codebase, progressively migrating AngularJS views to Angular.</li>
                     </ul>
                 </li>
-                <li class="job reveal">
+                <li class="job card reveal">
                     <div class="job-head">
                         <div>
                             <h3>Software Engineer</h3>
@@ -298,40 +353,40 @@
 
         <!-- Skills -->
         <section class="section container" id="skills">
-            <div class="section-head reveal">
+            <div class="section-head">
                 <p class="kicker">03 — Skills</p>
-                <h2>Core competencies</h2>
+                <h2 class="split">Core competencies</h2>
             </div>
-            <div class="skills-grid">
-                <article class="skill-card reveal featured">
+            <div class="skills-grid glow-group">
+                <article class="skill-card card reveal featured" data-index="01">
                     <h3>AI &amp; LLM Engineering</h3>
                     <ul class="tags"><li>Claude (Anthropic)</li><li>Gemini</li><li>Multi-LLM Orchestration</li><li>Prompt Engineering</li><li>AI Agent Design</li><li>Reviewer Agents</li><li>Data Enrichment Pipelines</li><li>Browser AI Automation</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="02">
                     <h3>Backend</h3>
                     <ul class="tags"><li>Node.js</li><li>NestJS</li><li>Express.js</li><li>REST</li><li>GraphQL</li><li>Microservices</li><li>WebSockets</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="03">
                     <h3>Frontend</h3>
                     <ul class="tags"><li>TypeScript</li><li>React</li><li>Next.js</li><li>Angular</li><li>AngularJS</li><li>HTML5</li><li>CSS3</li><li>Tailwind</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="04">
                     <h3>Architecture &amp; System Design</h3>
                     <ul class="tags"><li>Solution Architecture</li><li>DDD</li><li>Event-Driven</li><li>RabbitMQ / SQS</li><li>Playwright</li><li>Puppeteer</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="05">
                     <h3>Cloud &amp; DevOps</h3>
                     <ul class="tags"><li>AWS (EC2, S3, Lambda, SQS, SNS)</li><li>Azure</li><li>Docker</li><li>CI/CD</li><li>GitHub Actions</li><li>Datadog</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="06">
                     <h3>Databases &amp; Search</h3>
                     <ul class="tags"><li>MySQL</li><li>PostgreSQL</li><li>MongoDB</li><li>Elasticsearch</li><li>Redis</li><li>Query Optimization</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="07">
                     <h3>AI-Assisted Development</h3>
                     <ul class="tags"><li>Cursor</li><li>GitHub Copilot</li><li>AI-Augmented Debugging</li><li>LLM Code Review</li><li>Rapid Prototyping</li></ul>
                 </article>
-                <article class="skill-card reveal">
+                <article class="skill-card card reveal" data-index="08">
                     <h3>Leadership &amp; Process</h3>
                     <ul class="tags"><li>Team Management</li><li>Agile / Scrum</li><li>Code Reviews</li><li>Mentoring</li><li>Technical Roadmaps</li><li>Stakeholder Communication</li></ul>
                 </article>
@@ -340,19 +395,19 @@
 
         <!-- Education -->
         <section class="section container" id="education">
-            <div class="section-head reveal">
+            <div class="section-head">
                 <p class="kicker">04 — Education</p>
-                <h2>Education &amp; certification</h2>
+                <h2 class="split">Education &amp; certification</h2>
             </div>
-            <div class="edu-grid">
-                <article class="edu-card reveal">
+            <div class="edu-grid glow-group">
+                <article class="edu-card card reveal">
                     <svg class="icon edu-icon"><use href="#i-cap"/></svg>
                     <p class="job-date">2012 — 2016</p>
                     <h3>BS Computer Science (Honors)</h3>
                     <p class="job-org">Bahauddin Zakariya University <span>· Multan</span></p>
                     <p class="muted">Object-oriented programming, data structures, algorithms, databases and networking, with hands-on full-stack projects.</p>
                 </article>
-                <article class="edu-card reveal">
+                <article class="edu-card card reveal">
                     <svg class="icon edu-icon"><use href="#i-award"/></svg>
                     <p class="job-date">2024</p>
                     <h3>Leadership Development Course</h3>
@@ -363,34 +418,35 @@
 
         <!-- Testimonials -->
         <section class="section container" id="testimonials">
-            <div class="section-head reveal">
+            <div class="section-head">
                 <p class="kicker">05 — Recommendations</p>
-                <h2>What people say</h2>
+                <h2 class="split">What people say</h2>
             </div>
-            <div class="quotes">
-                <figure class="quote reveal">
+            <div class="quotes glow-group">
+                <figure class="quote card reveal">
                     <blockquote>Faheem worked on a couple of projects for challenging clients in my portfolio. He earned their respect through his very good technical skills and professional behaviour. He doesn't shy away from taking on new challenges and is a go-getter.</blockquote>
-                    <figcaption><strong>Aitizaz Shiekh</strong><span>Co-Founder, Data Doers</span></figcaption>
+                    <figcaption><span class="avatar" aria-hidden="true">AS</span><span><strong>Aitizaz Shiekh</strong><small>Co-Founder, Data Doers</small></span></figcaption>
                 </figure>
-                <figure class="quote reveal">
+                <figure class="quote card reveal">
                     <blockquote>Hard-working engineer, always committed to his work. Up to the challenge no matter the task or deadline, and ever ready to put in extra effort for the team's success. Faheem would be an asset to any team. He earns my highest recommendation.</blockquote>
-                    <figcaption><strong>Syed Ali Raza Sherazi</strong><span>CTO, MayaTravel.ai</span></figcaption>
+                    <figcaption><span class="avatar" aria-hidden="true">SA</span><span><strong>Syed Ali Raza Sherazi</strong><small>CTO, MayaTravel.ai</small></span></figcaption>
                 </figure>
             </div>
         </section>
 
         <!-- Contact -->
         <section class="section container" id="contact">
-            <div class="contact-card reveal">
+            <div class="contact-card card reveal glow-group">
+                <div class="contact-orb" aria-hidden="true"></div>
                 <p class="kicker">06 — Contact</p>
-                <h2>Let's build something together</h2>
+                <h2 class="split">Let's build something together</h2>
                 <p class="muted">Have a project, a role or an idea to talk through? I'm happy to hear from you.</p>
                 <div class="contact-links">
-                    <a class="contact-link" href="mailto:dev.imfaheem@gmail.com" data-track="contact_email">
+                    <a class="contact-link magnetic" href="mailto:dev.imfaheem@gmail.com" data-track="contact_email">
                         <svg class="icon"><use href="#i-mail"/></svg>
                         <span><small>Email</small>dev.imfaheem@gmail.com</span>
                     </a>
-                    <a class="contact-link" href="https://www.linkedin.com/in/imfahim-arshad/" target="_blank" rel="noopener" data-track="contact_linkedin">
+                    <a class="contact-link magnetic" href="https://www.linkedin.com/in/imfahim-arshad/" target="_blank" rel="noopener" data-track="contact_linkedin">
                         <svg class="icon"><use href="#i-linkedin"/></svg>
                         <span><small>LinkedIn</small>in/imfahim-arshad</span>
                     </a>
@@ -409,6 +465,6 @@
         </ul>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/main.js?v=3"></script>
 </body>
 </html>
