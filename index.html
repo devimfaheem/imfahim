@@ -236,21 +236,26 @@
         (function (id) {
             // Skip until a real ID is set, and don't count visits while developing locally
             if (!/^G-[A-Z0-9]{6,}$/.test(id) || id === "G-XXXXXXXXXX" || /^(localhost|127\.0\.0\.1)$/.test(location.hostname)) return;
-            var s = document.createElement("script");
-            s.async = true;
-            s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
-            document.head.appendChild(s);
             window.dataLayer = window.dataLayer || [];
             window.gtag = function () { dataLayer.push(arguments); };
             gtag("js", new Date());
             gtag("config", id);
+            // Fetch the tag only after the page has loaded so it never competes with content
+            var load = function () {
+                var s = document.createElement("script");
+                s.async = true;
+                s.src = "https://www.googletagmanager.com/gtag/js?id=" + id;
+                document.head.appendChild(s);
+            };
+            window.addEventListener("load", function () {
+                if ("requestIdleCallback" in window) requestIdleCallback(load, { timeout: 3000 });
+                else setTimeout(load, 1500);
+            });
         })(window.GA_MEASUREMENT_ID);
     </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=7">
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/style.css?v=8">
     <script>try{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
 </head>
 <body>
@@ -301,9 +306,9 @@
         <section class="container hero" id="top">
             <div class="hero-bg" aria-hidden="true"><span></span><span></span></div>
             <div class="bento glow-group">
-                <div class="tile card tilt t-intro reveal">
+                <div class="tile card tilt t-intro">
                     <p class="mono-label">// hello, I'm</p>
-                    <h1 class="split">Muhammad Faheem Arshad</h1>
+                    <h1>Muhammad Faheem Arshad</h1>
                     <p class="hero-role"><span class="gradient-text">AI Solution Architect</span> &amp; <span class="gradient-text">Engineering Manager</span></p>
                     <p class="hero-lead">AI systems engineer and AI solution provider. I design and ship AI agents, agentic automation and scalable Node.js platforms — from multi-LLM pipelines and autonomous reviewer agents to high-traffic web apps serving millions of users.</p>
                     <div class="hero-actions">
@@ -316,8 +321,8 @@
                     </div>
                 </div>
 
-                <div class="tile card tilt t-photo reveal">
-                    <img src="img/faheem-portrait.jpg" alt="Muhammad Faheem Arshad, AI Solution Architect and Engineering Manager" width="1000" height="1079" fetchpriority="high">
+                <div class="tile card tilt t-photo">
+                    <img src="img/faheem-portrait-700.webp" srcset="img/faheem-portrait-400.webp 400w, img/faheem-portrait-700.webp 700w, img/faheem-portrait-1000.webp 1000w" sizes="(max-width: 720px) calc(100vw - 32px), (max-width: 1024px) 50vw, 280px" alt="Muhammad Faheem Arshad, AI Solution Architect and Engineering Manager" width="1000" height="1079" fetchpriority="high" decoding="async">
                     <div class="photo-chips">
                         <a class="photo-chip" href="https://www.linkedin.com/in/imfahim-arshad/" target="_blank" rel="noopener" data-track="contact_linkedin">
                             <svg class="icon"><use href="#i-linkedin"/></svg> LinkedIn
@@ -328,29 +333,29 @@
                     </div>
                 </div>
 
-                <div class="tile card tilt t-now reveal">
+                <div class="tile card tilt t-now">
                     <p class="mono-label"><span class="live-dot"></span> Now</p>
                     <p class="tile-strong">Refocus AI</p>
                     <p class="tile-sub">Building AI browser-automation &amp; multi-LLM systems</p>
                 </div>
 
-                <div class="tile card tilt t-clock reveal">
+                <div class="tile card tilt t-clock">
                     <p class="mono-label"><svg class="icon"><use href="#i-pin"/></svg> Lahore, Pakistan</p>
                     <p class="clock" data-clock>--<span class="colon">:</span>--</p>
                     <p class="tile-sub">Local time · PKT (UTC+5)</p>
                 </div>
 
-                <div class="tile card tilt t-years reveal">
+                <div class="tile card tilt t-years">
                     <p class="stat" data-count="10" data-suffix="+">10+</p>
                     <p class="tile-sub">Years building software</p>
                 </div>
 
-                <div class="tile card tilt t-users reveal">
+                <div class="tile card tilt t-users">
                     <p class="stat" data-count="10" data-suffix="k+">10k+</p>
                     <p class="tile-sub">Concurrent users scaled</p>
                 </div>
 
-                <div class="tile card t-pipe t-term reveal" role="img" aria-label="Three looping demos: my spec-driven, test-first development workflow with AI agents; an agentic automation run in a terminal; and a flow diagram of the same business automation from incoming requests through AI agents and review to delivery">
+                <div class="tile card t-pipe t-term" role="img" aria-label="Three looping demos: my spec-driven, test-first development workflow with AI agents; an agentic automation run in a terminal; and a flow diagram of the same business automation from incoming requests through AI agents and review to delivery">
                     <div class="term-head">
                         <span class="term-dots" aria-hidden="true"><i></i><i></i><i></i></span>
                         <span class="term-title" data-term-title>claude — ~/project</span>
@@ -365,12 +370,12 @@
                     </div>
                 </div>
 
-                <div class="tile card tilt t-load reveal">
+                <div class="tile card tilt t-load">
                     <p class="stat" data-count="30" data-suffix="%">30%</p>
                     <p class="tile-sub">Server load cut with queue architecture</p>
                 </div>
 
-                <div class="tile card t-stack reveal" aria-label="Technologies I work with">
+                <div class="tile card t-stack" aria-label="Technologies I work with">
                     <div class="marquee"><ul class="marquee-track">
                         <li>Node.js</li><li>NestJS</li><li>TypeScript</li><li>React</li><li>Next.js</li><li>Angular</li><li>GraphQL</li><li>Express.js</li><li>WebSockets</li><li>Tailwind</li><li>Microservices</li>
                     </ul></div>
@@ -684,6 +689,6 @@
         </ul>
     </footer>
 
-    <script src="js/main.js?v=11"></script>
+    <script src="js/main.js?v=12"></script>
 </body>
 </html>
